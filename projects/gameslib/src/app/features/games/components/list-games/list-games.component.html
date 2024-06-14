@@ -1,0 +1,8 @@
+<artk-table-games 
+    title="Mes videos games" 
+    [items]="videoGamesList"
+    (toCreate)="readyForCreate()"
+></artk-table-games>
+@if(readyToCreate()){
+    <artk-create-video-game></artk-create-video-game>
+}

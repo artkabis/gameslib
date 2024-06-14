@@ -1,0 +1,49 @@
+installation d'angular CLI, via : npm install -g  @angular/cli
+(ici le g permet de l'installer globalement)
+
+Il est possible de vérifier la version via ng --version ou ng -v
+pour voir la version d'Angular on utilise ng version
+
+
+Une fois installé il est possible d'utiliser les commandes ng afin de créer un projet, ici : ng new gamelibs (pour un projet nommé gamelibs)
+
+
+
+Attention afin de mieux gérer un workspace, il est préférable de créer celui-ci via : 
+ng new gameslib --create-application=false    (ici le projet est nommé gameslib) et en fonction des besoin nous pouvons gérer la suite.
+
+
+Pour une application : 
+ng g app gameslib
+
+ici nous allons generate (g) une app en lien avec notre gameslib. Il sera par la suite possible de créer des librairie, mais ici nous débutons par une application.
+
+Pour créer notre premier composnant nous pouvons créer différents dossier et notre composant (c étant composant dans cette commande) : 
+----------------->
+ng g c features/games/components/list-games
+
+Ici un nouveau composant sera créé et nous devrons donc l'ajouter dans app.component.ts  : 
+------------->
+  imports: [RouterOutlet, ListGamesComponent],
+
+  Il faudra bien évidemment que celui-ci soit importé : 
+ --------------->
+  import { ListGamesComponent } from './features/games/components/list-games/list-games.component';
+
+Il est conseillé d'utilisé le dossier core uniquement pour l'ajout d'éléments très technique : tools / archi / ddd
+
+Alors que dans features, nous aurons nos fonctionnalités -> business
+
+Concernant le shared dossier, nous aurons nos futures librairie (dans composant ui, etc) -> 
+microfontend est une approche  prndre en compte.
+
+Afin de ne pas devoir relancer l'application à chaque changement il est possible de modifier le fichier tsconfig.json : 
+  "compileOnSave": true,
+  Ceci permettra de voir chaque changement après une save directement dans le navigateur.
+
+
+  Dans cette exemple on peut voir que les attribut peuvent être static ou non, 
+  s'il sont dynamique alors il seront décoré par des [], dans le cas contraire non. 
+  Nous pouvons voir ceci dans ce node : 
+  <artk-table-games title="Video games list" [items]="videoGamesList"></artk-table-games>
+Ici title est static alors que [items] ne l'est pas.

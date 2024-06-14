@@ -1,0 +1,17 @@
+<h2>{{ title() }}</h2>
+<table>
+    <tbody>
+        @for (videoGame of items(); track videoGame.name){
+            <tr>
+                <td>{{videoGame.name}}</td>
+                <td>{{videoGame.dateSortie}}</td>
+            </tr>
+        }@empty {
+            <tr>
+                <td colspan="2">Aucun jeu trouvé</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button (click)="clickAddVideoGame()">Ajouter un jeux vidéo</button>
