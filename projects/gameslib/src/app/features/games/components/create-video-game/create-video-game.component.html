@@ -1,1 +1,12 @@
-<p>create-video-game works!</p>
+<form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" />
+    </div>
+    <div>
+      <label for="dateSortie">Date de Sortie:</label>
+      <input id="dateSortie" formControlName="dateSortie" type="date" />
+    </div>
+    <button type="submit">Ajouter</button>
+  </form>
+  

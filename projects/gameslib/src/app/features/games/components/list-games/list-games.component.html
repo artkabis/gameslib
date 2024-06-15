@@ -4,5 +4,5 @@
     (toCreate)="readyForCreate()"
 ></artk-table-games>
 @if(readyToCreate()){
-    <artk-create-video-game></artk-create-video-game>
+    <artk-create-video-game (gameCreated)="addNewGame($event)"></artk-create-video-game>
 }
